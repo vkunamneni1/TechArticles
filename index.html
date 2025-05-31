@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Tech Articles</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display|Source+Sans+Pro&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="articles.js"></script>
+  </head>
+  <body>
+    <h1>Tech Articles</h1>
+
+    <div class="controls">
+      <button onclick="listView();">List View</button>
+      <button class="active" onclick="gridView();">Grid View</button>
+    </div>
+
+    <div class="container"></div>
+
+    <script>
+      for (var post of articles) {
+        var postHTML = `<div class="post"><img src="${post.image}"><h3>${post.title}</h3><p>${post.description}</p><a href="${post.link}" target="_blank">Read More...</a></div>`;
+        $('.container').append(postHTML);
+      }
+
+      function listView() {
+        $('.container').addClass('list-view');
+        $('.active').removeClass('active');
+        $(event.currentTarget).addClass('active');
+      }
+
+      function gridView() {
+        $('.container').removeClass('list-view');
+        $('.active').removeClass('active');
+        $(event.currentTarget).addClass('active');
+      }
+    </script>
+  </body>
+</html>
